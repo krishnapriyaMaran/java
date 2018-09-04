@@ -1,0 +1,59 @@
+var allQuestions = [{question: "polymorphism"},{question: "template"}, {question : "MessageBinding"}];
+// finding length
+var topic = document.getElementById('topic');
+
+for(j=0;j<3;j++ ){
+console.log(j);
+var TopicId = "topic"+j; var ratingId = "Rating"+j;
+console.log(TopicId, ratingId);
+var topicValue = allQuestions[j].question;
+var topicLabel = document.createElement('label');
+topicLabel.innerHTML=topicValue;
+topicLabel.setAttribute('for', TopicId);
+var TopicSet = document.getElementById('TopicSet');
+TopicSet.appendChild(topicLabel);
+var br = document.createElement('br');
+TopicSet.appendChild(br);
+ 
+var name=topicValue+'Rating';
+
+function choiceList(name) {     
+console.log(name);
+    var question=allQuestions[0];
+    var rateCount = 5;
+    for (i=1;i<=rateCount;i++) {        
+    var rating = document.createElement('label');
+    rating.setAttribute("id", ratingId)
+    var choiceSelection = document.createElement('input');
+    var choiceLabel = document.createElement('label');
+  
+    choiceSelection.setAttribute('type', 'radio');
+    choiceSelection.setAttribute('name', name);
+        
+    choiceLabel.innerHTML=i;
+    choiceLabel.setAttribute('for', i);
+ topicLabel.appendChild(rating);
+ 
+    rating.appendChild(choiceSelection);
+    rating.appendChild(choiceLabel);
+    //topicLabel.appendChild(document.getElementById('rating'));
+ 
+ }
+}
+
+choiceList(name);
+
+}
+
+
+
+***********html*****************
+   <form>
+   <div id="TopicSet">
+   </div>
+       <label id="topic">Question:</label>
+        <div id="rating">
+        </div>
+        <input type="button" value="save" />
+              
+   </form>
